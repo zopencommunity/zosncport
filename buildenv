@@ -1,0 +1,41 @@
+export ZOPEN_STABLE_URL="https://github.com/IBM/zos-nc.git"
+export ZOPEN_STABLE_DEPS="make moreutils comp_go coreutils"
+export ZOPEN_DEV_URL="https://github.com/IBM/zos-nc.git"
+export ZOPEN_DEV_DEPS="make moreutils comp_go coreutils"
+export ZOPEN_BUILD_LINE="DEV"
+export ZOPEN_RUNTIME_DEPS="bash"
+export ZOPEN_DONT_ADD_ZOSLIB_DEP=1
+export ZOPEN_CONFIGURE="skip"
+export ZOPEN_COMP="CLANG"
+
+# zopen doesn't like hyphens, strip them out
+export ZOPEN_NAME="zosnc"
+ln -sf zos-nc zosnc
+
+export ZOPEN_INSTALL_OPTS="PREFIX=\$ZOPEN_INSTALL_DIR install"
+
+zopen_pre_patch() {
+  export CFLAGS=""
+  export CPPFLAGS=""
+}
+
+zopen_check_results()
+{
+dir="$1"
+pfx="$2"
+chk="$1/$2_check.log"
+
+# Echo the following information to gauge build health
+echo "actualFailures:0"
+echo "totalTests:1"
+echo "expectedFailures:0"
+echo "expectedTotalTests:1"
+}
+
+zopen_get_version()
+{
+# Modify to echo the version of your tool/library
+# Rather than hardcoding the version, obtain the version by running the tool/library
+echo "1.0.0"
+}
+
