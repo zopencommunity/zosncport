@@ -2,6 +2,7 @@ export ZOPEN_STABLE_URL="https://github.com/IBM/zos-nc.git"
 export ZOPEN_STABLE_DEPS="make moreutils comp_go coreutils"
 export ZOPEN_DEV_URL="https://github.com/IBM/zos-nc.git"
 export ZOPEN_DEV_DEPS="make moreutils comp_go coreutils"
+export ZOPEN_CATEGORIES="utilities"
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_DONT_ADD_ZOSLIB_DEP=1
 export ZOPEN_CONFIGURE="skip"
